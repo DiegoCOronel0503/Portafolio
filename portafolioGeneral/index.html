@@ -1,189 +1,225 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diego Coronel - Junior Developer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diego Coronel — Data & BI Developer</title>
+  <meta name="description" content="Data & BI Developer building Streamlit dashboards, Python automation, and interactive data tools for small businesses." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Diego Coronel — Data & BI Developer" />
+  <meta property="og:description" content="Streamlit dashboards, Python automation, and interactive data tools for small businesses." />
+  <meta property="og:url" content="https://diegocoronel0503.github.io/Portafolio/portafolioGeneral/" />
+  <meta name="twitter:card" content="summary" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="preload"
+    as="style"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+  </noscript>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">Diego Coronel</div>
-                <div class="nav-container">
-                    <div class="nav-links">
-                        <a href="#hero">Inicio</a>
-                        <a href="#about">Sobre mí</a>
-                        <a href="#projects">Proyectos</a>
-                        <a href="#contact">Contacto</a>
-                    </div>
-                    <button class="dark-mode-toggle" id="darkModeToggle">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                    <div class="hamburger">
-                        <i class="fas fa-bars"></i>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </header>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- Hero Section -->
-    <section id="hero">
-        <div class="container">
-            <div class="hero-content fade-in">
-                <h1>Junior Software Developer</h1>
-                <p class="delay-1">Especializado en Angular, React, Node.js y SQL. Creando aplicaciones web y móviles modernas, rápidas y seguras.</p>
-                <a href="#projects" class="btn delay-2">Ver mis proyectos</a>
-            </div>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Primary">
+      <a class="nav-logo" href="#hero">Diego Coronel</a>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section id="hero" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <h1>Data &amp; BI Developer</h1>
+          <p class="hero-subhead">
+            I build Streamlit dashboards, Python automation tools, and interactive data experiences for small businesses.
+          </p>
+          <p class="hero-meta">Based in Paraguay · Available for freelance projects — 10-15 hrs/week</p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+          </div>
         </div>
+        <div class="hero-media">
+          <div class="avatar-frame">
+            <img src="assets/profile.jpg" alt="Portrait of Diego Coronel" onerror="this.style.display='none'; this.parentElement.classList.add('no-image')" />
+            <span class="avatar-fallback" aria-hidden="true">DC</span>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <h2 class="section-title fade-in">Sobre mí</h2>
-            <div class="about-content">
-                <div class="about-text fade-in delay-1">
-                    <h3>¡Hola! Soy Diego Coronel</h3>
-                    <p>Desarrollador Junior con ganas de aprender, especializandome en la creacion aplicaciones web y móviles modernas, rápidas y seguras.</p>
-                    <p>Me preparo en la creacion de software en Angular, React, Node.js, Ionic, y bases de datos como SQL Server y MySQL, enfocándome en ofrecer soluciones eficientes, fáciles de mantener y con una excelente experiencia de usuario.</p>
-                    
-                    <div class="skills">
-                        <span class="skill">Angular</span>
-                        <span class="skill">React</span>
-                        <span class="skill">Node.js</span>
-                        <span class="skill">Ionic</span>
-                        <span class="skill">SQL Server</span>
-                        <span class="skill">JavaScript</span>
-                        <span class="skill">HTML/CSS</span>
-                        <span class="skill">Git</span>
-                        <span class="skill">Ingles</span>						
-                    </div>
-                </div>
-                <div class="about-image fade-in delay-2">
-                    <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Diego Coronel">
-                </div>
-            </div>
+    <!-- About -->
+    <section id="about" class="about">
+      <div class="container">
+        <h2 class="section-title">About</h2>
+        <div class="about-body">
+          <p>I'm Diego, a developer based in Paraguay focused on turning messy data into tools people actually use. My work sits at the intersection of Python, data visualization, and internal business tools — the kind of software that saves teams hours every week.</p>
+          <p>I've built BI dashboards for a mortgage lending company, automated Excel-to-report pipelines, and integrated CRM systems for internal workflows. I work best with small teams that need a technical partner, not a code monkey.</p>
         </div>
+      </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="container">
-            <h2 class="section-title fade-in">Proyectos Destacados</h2>
-            <div class="projects-grid">
-                <div class="project-card fade-in delay-1">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1450&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="pagina web MovieFinder">
-                    </div>
-                    <div class="project-info">
-                        <h3>App de CineFinder</h3>
-                        <p>Pagina web dedicada a la busqueda mediante API key de peliculas destacadas.</p>
-                        <div class="project-tech">
-                            <span class="tech">html</span>
-                            <span class="tech">css</span>
-                            <span class="tech">javascript</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://diegocoronel0503.github.io/Portafolio/ProyectoPeliculas/" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
-                            <a href="#"><i class="fab fa-github"></i> Código</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card fade-in delay-2">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Sales Analytics Dashboard">
-                    </div>
-                    <div class="project-info">
-                        <h3>Sales Analytics Dashboard</h3>
-                        <p>Dashboard de BI interactivo con filtros, KPIs en tiempo real y gráficos de ventas para una empresa SaaS ficticia. Datos sintéticos.</p>
-                        <div class="project-tech">
-                            <span class="tech">HTML</span>
-                            <span class="tech">CSS</span>
-                            <span class="tech">JavaScript</span>
-                            <span class="tech">Plotly.js</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://diegocoronel0503.github.io/Portafolio/SalesDashboard/" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
-                            <a href="#"><i class="fab fa-github"></i> Código</a>
-                        </div>
-                    </div>
-                </div>
+    <!-- Projects -->
+    <section id="projects" class="projects">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
 
-                <div class="project-card fade-in delay-3">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Sitio web responsive">
-                    </div>
-                    <div class="project-info">
-                        <h3>Sitio Web Responsive</h3>
-                        <p>Diseño y desarrollo de sitio web para una empresa local, optimizado para SEO, con React y CSS moderno.</p>
-                        <div class="project-tech">
-                            <span class="tech">React</span>
-                            <span class="tech">CSS</span>
-                            <span class="tech">Responsive</span>
-                            <span class="tech">SEO</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#"><i class="fas fa-external-link-alt"></i> Demo</a>
-                            <a href="#"><i class="fab fa-github"></i> Código</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card fade-in delay-4">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Sistema de login">
-                    </div>
-                    <div class="project-info">
-                        <h3>Sistema de Registro</h3>
-                        <p>Login con JWT, recuperación de contraseña y protección de rutas para un panel administrativo.</p>
-                        <div class="project-tech">
-                            <span class="tech">Node.js</span>
-                            <span class="tech">JWT</span>
-                            <span class="tech">MongoDB</span>
-                            <span class="tech">React</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#"><i class="fas fa-external-link-alt"></i> Demo</a>
-                            <a href="#"><i class="fab fa-github"></i> Código</a>
-                        </div>
-                    </div>
-                </div>
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <article class="project-card">
+            <div class="card-image">
+              <img src="assets/project-1.jpg" alt="Sales Analytics Dashboard screenshot" loading="lazy" onerror="this.style.display='none'; this.parentElement.classList.add('no-image')" />
             </div>
+            <div class="card-body">
+              <h3>Sales Analytics Dashboard</h3>
+              <p>An interactive BI dashboard built with Streamlit and Plotly. Features multi-dimension filtering, real-time KPIs, and drill-down analytics. Data is synthetic.</p>
+              <ul class="tech-tags">
+                <li>Python</li>
+                <li>Streamlit</li>
+                <li>Pandas</li>
+                <li>Plotly</li>
+              </ul>
+              <div class="card-actions">
+                <a href="https://diegocoronel0503.github.io/Portafolio/SalesDashboard/" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Live Demo</a>
+                <button type="button" class="btn btn-secondary btn-sm" disabled aria-disabled="true" title="Coming soon">Code</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project-card">
+            <div class="card-image">
+              <img src="assets/project-2.jpg" alt="CineFinder screenshot" loading="lazy" onerror="this.style.display='none'; this.parentElement.classList.add('no-image')" />
+            </div>
+            <div class="card-body">
+              <h3>CineFinder</h3>
+              <p>Movie search app consuming a public API. Practice project focused on async data fetching and responsive UI.</p>
+              <ul class="tech-tags">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>REST API</li>
+              </ul>
+              <div class="card-actions">
+                <a href="https://diegocoronel0503.github.io/Portafolio/ProyectoPeliculas/" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Live Demo</a>
+                <a href="https://github.com/DiegoCOronel0503/Portafolio/tree/main/ProyectoPeliculas" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">Code</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project-card">
+            <div class="card-image">
+              <img src="assets/project-3.jpg" alt="Excel to Report Automation screenshot" loading="lazy" onerror="this.style.display='none'; this.parentElement.classList.add('no-image')" />
+            </div>
+            <div class="card-body">
+              <h3>Excel to Report Automation</h3>
+              <p>Python tool that reads unstructured Excel files, cleans data, and outputs formatted PDF/Excel reports. Reduced manual reporting from 4 hours to 2 minutes for a real client use case.</p>
+              <ul class="tech-tags">
+                <li>Python</li>
+                <li>Pandas</li>
+                <li>openpyxl</li>
+                <li>ReportLab</li>
+              </ul>
+              <div class="card-actions">
+                <button type="button" class="btn btn-primary btn-sm" disabled aria-disabled="true" title="Coming soon">Live Demo</button>
+                <button type="button" class="btn btn-secondary btn-sm" disabled aria-disabled="true" title="Coming soon">Code</button>
+              </div>
+            </div>
+          </article>
         </div>
+
+        <p class="projects-note">More project write-ups coming as I ship them.</p>
+      </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <h2 class="section-title fade-in">Contacto</h2>
-            <div class="contact-content fade-in delay-1">
-                <p>Si buscas un desarrollador proactivo, responsable y con muchas ganas de ayudarte a crecer tu proyecto, ¡hablemos!</p>
-                
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fas fa-envelope"></i></a>
-                </div>
-                
-                <a href="mailto:correo@ejemplo.com" class="btn">Enviar mensaje</a>
-            </div>
+    <!-- Skills -->
+    <section id="skills" class="skills">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h3>Data &amp; BI</h3>
+            <ul class="chip-list">
+              <li class="chip">Python</li>
+              <li class="chip">Pandas</li>
+              <li class="chip">Streamlit</li>
+              <li class="chip">Plotly</li>
+              <li class="chip">PyGWalker</li>
+              <li class="chip">SQL</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3>Automation &amp; Integration</h3>
+            <ul class="chip-list">
+              <li class="chip">Excel automation</li>
+              <li class="chip">PDF generation</li>
+              <li class="chip">REST APIs</li>
+              <li class="chip">Bitrix24</li>
+              <li class="chip">Webhooks</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3>Web basics</h3>
+            <ul class="chip-list">
+              <li class="chip">HTML</li>
+              <li class="chip">CSS</li>
+              <li class="chip">JavaScript</li>
+              <li class="chip">Git</li>
+              <li class="chip">GitHub Pages</li>
+            </ul>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="fade-in delay-2">
-        <div class="container">
-            <p>&copy; 2025 Diego Coronel. Todos los derechos reservados.</p>
-        </div>
-    </footer>
+    <!-- Contact -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <p class="contact-lede">Have a project in mind or need a technical partner for internal tools? Let's talk.</p>
 
-    <script src="js/script.js"></script>
+        <div class="contact-actions">
+          <button type="button" class="btn btn-primary" disabled aria-disabled="true" title="Coming soon">Email Me</button>
+        </div>
+
+        <div class="social-links">
+          <a href="https://github.com/diegocoronel0503" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-2.15c-3.2.7-3.88-1.36-3.88-1.36-.52-1.32-1.28-1.67-1.28-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.25 3.34.95.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.73.8 1.18 1.83 1.18 3.09 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.08.78 2.17v3.22c0 .3.21.66.79.55A10.99 10.99 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Diego Coronel · Built with HTML, CSS, and coffee.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
 </body>
 </html>
