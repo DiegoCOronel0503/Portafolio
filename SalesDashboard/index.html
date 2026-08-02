@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sales Analytics Dashboard</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>Filters</h2>
+
+      <div class="filter-group">
+        <label class="group-label">Date range</label>
+        <div class="date-range">
+          <input type="date" id="start-date" />
+          <input type="date" id="end-date" />
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <label class="group-label">Region</label>
+        <div class="dropdown" id="region-dropdown" data-filter="region">
+          <button type="button" class="dropdown-toggle" id="region-toggle">
+            <span class="dropdown-toggle-text" id="region-toggle-text">All</span>
+            <span class="chevron">⌄</span>
+          </button>
+          <div class="dropdown-panel" id="region-panel">
+            <div class="dropdown-actions">
+              <button type="button" class="link-btn" data-action="select-all">Select all</button>
+              <button type="button" class="link-btn" data-action="clear">Clear</button>
+            </div>
+            <div class="checkbox-list" id="region-filter"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <label class="group-label">Product category</label>
+        <div class="dropdown" id="category-dropdown" data-filter="category">
+          <button type="button" class="dropdown-toggle" id="category-toggle">
+            <span class="dropdown-toggle-text" id="category-toggle-text">All</span>
+            <span class="chevron">⌄</span>
+          </button>
+          <div class="dropdown-panel" id="category-panel">
+            <div class="dropdown-actions">
+              <button type="button" class="link-btn" data-action="select-all">Select all</button>
+              <button type="button" class="link-btn" data-action="clear">Clear</button>
+            </div>
+            <div class="checkbox-list" id="category-filter"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <label class="group-label">Sales rep</label>
+        <div class="dropdown" id="rep-dropdown" data-filter="rep">
+          <button type="button" class="dropdown-toggle" id="rep-toggle">
+            <span class="dropdown-toggle-text" id="rep-toggle-text">All</span>
+            <span class="chevron">⌄</span>
+          </button>
+          <div class="dropdown-panel" id="rep-panel">
+            <div class="dropdown-actions">
+              <button type="button" class="link-btn" data-action="select-all">Select all</button>
+              <button type="button" class="link-btn" data-action="clear">Clear</button>
+            </div>
+            <div class="checkbox-list" id="rep-filter"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <label class="group-label">Status</label>
+        <div class="dropdown" id="status-dropdown" data-filter="status">
+          <button type="button" class="dropdown-toggle" id="status-toggle">
+            <span class="dropdown-toggle-text" id="status-toggle-text">All</span>
+            <span class="chevron">⌄</span>
+          </button>
+          <div class="dropdown-panel" id="status-panel">
+            <div class="dropdown-actions">
+              <button type="button" class="link-btn" data-action="select-all">Select all</button>
+              <button type="button" class="link-btn" data-action="clear">Clear</button>
+            </div>
+            <div class="checkbox-list" id="status-filter"></div>
+          </div>
+        </div>
+      </div>
+
+      <button class="reset-btn" id="reset-filters-btn">Reset filters</button>
+    </aside>
+
+    <main class="main">
+      <div class="banner">
+        ⚠️ <strong>Demo dashboard</strong> — All data is synthetic. Built by Diego as a portfolio piece.
+        <a href="#">GitHub</a> | <a href="#">Contact</a>
+      </div>
+
+      <h1 class="page-title">Sales Analytics Dashboard</h1>
+
+      <div class="kpi-row">
+        <div class="kpi-card">
+          <div class="kpi-label">Total Revenue</div>
+          <div class="kpi-value" id="kpi-revenue-value">—</div>
+          <div class="kpi-delta" id="kpi-revenue-delta"></div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Orders</div>
+          <div class="kpi-value" id="kpi-orders-value">—</div>
+          <div class="kpi-delta" id="kpi-orders-delta"></div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Average Order Value</div>
+          <div class="kpi-value" id="kpi-aov-value">—</div>
+          <div class="kpi-delta" id="kpi-aov-delta"></div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Refund Rate %</div>
+          <div class="kpi-value" id="kpi-refund-value">—</div>
+          <div class="kpi-delta" id="kpi-refund-delta"></div>
+        </div>
+      </div>
+
+      <div class="tabs">
+        <button class="tab-btn active" data-target="tab-overview">Overview</button>
+        <button class="tab-btn" data-target="tab-products">Products</button>
+        <button class="tab-btn" data-target="tab-team">Sales Team</button>
+        <button class="tab-btn" data-target="tab-raw">Raw Data</button>
+      </div>
+
+      <div id="charts-empty-state" class="empty-state" style="display: none">
+        No data matches the current filters.
+      </div>
+
+      <div id="charts-container">
+        <div class="tab-panel active" id="tab-overview">
+          <h3 class="chart-title">Revenue Over Time</h3>
+          <div class="chart-box"><div id="chart-revenue-time" style="height: 340px"></div></div>
+
+          <h3 class="chart-title">Revenue by Region</h3>
+          <div class="chart-box"><div id="chart-revenue-region" style="height: 340px"></div></div>
+        </div>
+
+        <div class="tab-panel" id="tab-products">
+          <h3 class="chart-title">Top 10 Products by Revenue</h3>
+          <div class="chart-box"><div id="chart-top-products" style="height: 380px"></div></div>
+
+          <h3 class="chart-title">Category → Product Breakdown</h3>
+          <div class="chart-box"><div id="chart-treemap" style="height: 420px"></div></div>
+        </div>
+
+        <div class="tab-panel" id="tab-team">
+          <h3 class="chart-title">Revenue by Sales Rep</h3>
+          <div class="chart-box"><div id="chart-revenue-rep" style="height: 340px"></div></div>
+
+          <h3 class="chart-title">Sales Rep Performance</h3>
+          <table class="data-table" id="rep-table">
+            <thead>
+              <tr>
+                <th>Sales Rep</th>
+                <th>Orders</th>
+                <th>Revenue</th>
+                <th>Avg Order Value</th>
+                <th>Refund Rate</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div class="tab-panel" id="tab-raw">
+          <div class="raw-data-header">
+            <h3 class="chart-title" style="margin: 0">Filtered Transactions</h3>
+            <button class="download-btn" id="download-csv-btn">Download filtered data as CSV</button>
+          </div>
+          <div class="table-scroll">
+            <table class="data-table" id="raw-table">
+              <thead></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+          <div class="row-count" id="raw-row-count"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
