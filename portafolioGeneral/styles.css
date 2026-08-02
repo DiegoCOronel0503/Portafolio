@@ -312,6 +312,14 @@ section > .container {
   object-fit: cover;
   position: absolute;
   inset: 0;
+  filter: blur(3px);
+  transform: scale(1.05);
+  transition: filter 0.2s ease;
+}
+
+.project-card:hover .card-image img,
+.project-card:focus-within .card-image img {
+  filter: blur(0);
 }
 
 .card-image.no-image::before {
